@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <librealsense2/rs.hpp> // Include RealSense Cross Platform API
+#include <opencv2/opencv.hpp>   // Include OpenCV API
+
+int main(int argc, char * argv[]) try
+{
+	// Declare depth colorizer for pretty visualization of depth data
+	rs2::colorizer color_map;
+
+	// Declare RealSense pipeline, encapsulating the actual device and sensors
+	rs2::pipeline pipe;
+	rs2::config cfg;
+	cfg.enable_stream(RS2_STREAM_DEPTH);
+	cfg.enable_stream(RS2_STREAM_COLOR, 1280, 720, RS2_FORMAT_BGR8, 30);
+	// Start streaming with default recommended configuration
+	pipe.start(cfg);
+
+	using namespace cv;
+	const auto window_name = "Display Image";
+	namedWindow(window_name, WINDOW_AUTOSIZE);
+	float pixel_distance_in_meters;
+	while (true)
+	{
+		rs2::frameset data = pipe.wait_for_frames(); // Wait for next set of frames from the camera
+		//rs2::frame depth = color_map.colorize(depth);
+		rs2::depth_frame depth_point = data.get_depth_frame();
+
+		rs2::frame depth = color_map.colorize(depth_point);
+		// Query frame size (width and height)
+		//const int w = depth.as<rs2::video_frame>().get_width(300);
+		//const int h = depth.as<rs2::video_frame>().get_height();
+		
+		const int w = 300;
+		const int h = 300;
+
+		// Create OpenCV matrix of size (w,h) from the colorized depth data
+		Mat image(Size(w, h), CV_8UC3, (void*)depth.get_data(), Mat::AUTO_STEP);
+
+		//get depth
+		//画像の真ん中のxy座標の距離を取得
+		pixel_distance_in_meters = depth_point.get_distance(w/2,h/2);
+		std::cout << pixel_distance_in_meters  << std::endl;
+
+		// Update the window with new data
+		printf("xxx\n");
+		imshow("data", image);
+		waitKey(50);
+	}
+
+	return EXIT_SUCCESS;
+}
+catch (const rs2::error & e)
+{
+	std::cerr << "RealSense error calling " << e.get_failed_function() << "(" << e.get_failed_args() << "):\n    " << e.what() << std::endl;
+	return EXIT_FAILURE;
+}
+catch (const std::exception& e)
+{
+	std::cerr << e.what() << std::endl;
+	return EXIT_FAILURE;
+}
+
