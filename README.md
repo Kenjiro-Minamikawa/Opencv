@@ -42,10 +42,26 @@ rs-imshowをいじった
 
 - cv12
 
-まだ書いてない
+色認識
+
+inRange使ってないやつ
+
+ビット演算でポチポチやってく
 
 - rs-imshow
 
 realsenseからdepthを取ってくるプログラム
 
 librealsenseのやつそのまま
+
+- cv13
+
+RGBのマスクで色認識
+
+- cv14
+
+HSVのマスクで色認識
+
+- cv15
+
+動画での色認識
