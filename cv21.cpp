@@ -6,7 +6,7 @@
 #define S_MAX 255
 #define S_MIN 150
 #define V_MAX 255
-#define V_MIN 100
+#define V_MIN 50
 
 using namespace cv;
 using namespace std;
@@ -45,7 +45,7 @@ int main(int argc, char* argv[]){
 
 		vector<vector<cv::Point> > contours;
 		findContours(mask2, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
-
+		if(contours.size()>0){
 		double max_area=0;
 		int max_area_contour=-1;
 
@@ -74,7 +74,9 @@ int main(int argc, char* argv[]){
 
 		drawContours(output_frame, contours_subset, -1, Scalar(0,255,0), -1);
 
-		circle(output_frame, Point(x,y), 100, Scalar(255,0,0), 3, 4);
+		circle(output_frame, Point(x,y), 5, Scalar(255,0,0), -1, -1);
+
+		}
 
 		cv::namedWindow("after");
 		cv::imshow("after", output_frame);
