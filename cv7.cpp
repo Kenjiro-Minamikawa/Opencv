@@ -1,4 +1,5 @@
 #include<opencv2/opencv.hpp>
+#include<iostream>
 
 int main(void){
 	cv::VideoCapture cap;
@@ -14,6 +15,10 @@ int main(void){
 		const int key = cv::waitKey(1);
 		if(key == 'q'){
 			break;
+		}
+		if(key == 'p'){
+			cv::imwrite("cam_img.jpg", frame);
+			std::cout << "captured!" << std::endl;
 		}
 	}
 	cv::destroyAllWindows();
