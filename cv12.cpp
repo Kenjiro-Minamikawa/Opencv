@@ -16,7 +16,7 @@ int main(int argc, char* argv[]){
 
 	cv::Mat hsv, frame, hue, hue1, hue2, saturation, value, hue_saturation, image_black_white;
 
-	frame = cv::imread("input.jpg");
+	frame = cv::imread("/home/minamikawa/Opencv/media/input.jpg");
 
 	cv::cvtColor(frame, hsv, CV_BGR2HSV, 3);
 

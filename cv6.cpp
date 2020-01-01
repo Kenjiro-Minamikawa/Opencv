@@ -4,7 +4,7 @@
 int main(){
 	cv::Mat img, dst;
 
-	img = cv::imread("image1.png");
+	img = cv::imread("/home/minamikawa/Opencv/media/image1.png");
 	dst = img.clone();
 
 	cv::circle(dst, cv::Point(255,255), 100, cv::Scalar(255,0,0), 5);

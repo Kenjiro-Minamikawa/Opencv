@@ -24,8 +24,8 @@ int main(int argc, char * argv[]) try
         rs2::frame depth = data.get_color_frame();
 
         // Query frame size (width and height)
-        const int w = depth.as<rs2::video_frame>().get_width();
-        const int h = depth.as<rs2::video_frame>().get_height();
+        //const int w = depth.as<rs2::video_frame>().get_width();
+        //const int h = depth.as<rs2::video_frame>().get_height();
 
         // Create OpenCV matrix of size (w,h) from the colorized depth data
         Mat image(Size(640, 480), CV_8UC3, (void*)depth.get_data(), Mat::AUTO_STEP);

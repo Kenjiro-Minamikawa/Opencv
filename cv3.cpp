@@ -3,13 +3,22 @@
 int main(void){
 	cv::Mat src, dst, img;
 
-	src = cv::imread("../ロゴ1-1.png");
+	src = cv::imread("/home/minamikawa/Opencv/media/image1.png");
+
+	if(src.empty()){
+                std::cout << "image was not found!" << std::endl;
+                return -1;
+        }
+
 
 	cv::flip(src, dst, 0);
 	cv::flip(src, img, 1);
 
-	cv::imwrite("./media/反転.png", dst);
-	cv::imwrite("./media/対称.png", img);
+	cv::imshow("反転", dst);
+	cv::imshow("対称", img);
+
+	cv::imwrite("/home/minamikawa/Opencv/media/反転.png", dst);
+	cv::imwrite("/home/minamikawa/Opencv/media/対称.png", img);
 
 	cv::waitKey();
 

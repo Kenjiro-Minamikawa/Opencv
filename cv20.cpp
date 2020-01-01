@@ -1,7 +1,7 @@
 #include <opencv2/opencv.hpp>
 
 int main(int argc, char *argv[]){
-	cv::Mat src_img = cv::imread("images.jpeg");
+	cv::Mat src_img = cv::imread("/home/minamikawa/Opencv/media/images.jpeg");
 	if(src_img.empty()) return -1;
 
 	cv::Mat dst_img1, dst_img2;

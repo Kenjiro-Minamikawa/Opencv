@@ -17,7 +17,7 @@ int main(void){
 			break;
 		}
 		if(key == 'p'){
-			cv::imwrite("cam_img.jpg", frame);
+			cv::imwrite("/home/minamikawa/Opencv/media/cam_img.jpg", frame);
 			std::cout << "captured!" << std::endl;
 		}
 	}

@@ -1,9 +1,15 @@
 #include<opencv2/opencv.hpp>
+#include<iostream>
 
 int main(void){
 	cv::Mat src, dst;
 
-	src = cv::imread("../ロゴ1-1.png");
+	src = cv::imread("/home/minamikawa/Opencv/media/image1.png");
+
+	if(src.empty()){
+		std::cout << "image was not found!" << std::endl;
+		return -1;
+	}
 
 	cv::cvtColor(src, dst, cv::COLOR_BGR2GRAY);
 
