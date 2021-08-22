@@ -16,7 +16,7 @@ using namespace cv;
 int main(void)
 {
 	// 入力画像名(ファイルパス)
-	string input_filename = "/home/minamikawa/Opencv/media/images.jpeg";
+	string input_filename = "../media/images.jpeg";
 
 	// 画像を3チャンネル(BGR)で読み込む
 	Mat input_image_rgb = imread(input_filename, CV_LOAD_IMAGE_COLOR);
@@ -36,7 +36,7 @@ int main(void)
 	// HSV変換した画像を表示して確認
 	namedWindow("input_HSV");
 	imshow("input_HSV", hsv_image);
-	imwrite("/home/minamikawa/Opencv/media/hsv.jpg", hsv_image);
+	imwrite("../media/hsv.jpg", hsv_image);
 
 	// inRangeを用いてフィルタリング
 	Scalar s_min = Scalar(H_MIN, S_MIN, V_MIN);
@@ -46,7 +46,7 @@ int main(void)
 	// マスク画像を表示
 	namedWindow("mask");
 	imshow("mask", mask_image);
-	imwrite("/home/minamikawa/Opencv/media/mask.jpg", mask_image);
+	imwrite("../media/mask.jpg", mask_image);
 
 	// マスクを基に入力画像をフィルタリング
 	input_image_rgb.copyTo(output_image, mask_image);
@@ -54,7 +54,7 @@ int main(void)
 	// 結果の表示と保存
 	namedWindow("output");
 	imshow("output", output_image);
-	imwrite("/home/minamikawa/Opencv/media/output.jpg", output_image);
+	imwrite("../media/output.jpg", output_image);
 	waitKey(0);
 
 	return 0;

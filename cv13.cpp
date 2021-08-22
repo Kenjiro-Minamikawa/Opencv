@@ -16,7 +16,7 @@ using namespace cv;
 int main(void)
 {
 	// 入力画像名(ファイルパス)
-	string input_filename = "/home/minamikawa/Opencv/media/block.png";
+	string input_filename = "../media/block.png";
 
 	// 画像を3チャンネル(BGR)で読み込む
 	Mat input_image_rgb = imread(input_filename, CV_LOAD_IMAGE_COLOR);
@@ -40,7 +40,7 @@ int main(void)
 	// マスク画像を表示
 	namedWindow("mask");
 	imshow("mask", mask_image);
-	imwrite("/home/minamikawa/Opencv/media/mask.jpg", mask_image);
+	imwrite("../media/mask.jpg", mask_image);
 
 	// マスクを基に入力画像をフィルタリング
 	input_image_rgb.copyTo(output_image_rgb, mask_image);
@@ -48,7 +48,7 @@ int main(void)
 	// 結果の表示と保存
 	namedWindow("output");
 	imshow("output", output_image_rgb);
-	imwrite("/home/minamikawa/Opencv/media/output.jpg", output_image_rgb);
+	imwrite("../media/output.jpg", output_image_rgb);
 	waitKey(0);
 
 	return 0;

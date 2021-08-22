@@ -4,7 +4,7 @@
 int main(void){
 	cv::Mat src, dst;
 
-	src = cv::imread("/home/minamikawa/Opencv/media/image1.png");
+	src = cv::imread("../media/image1.png");
 
 	if(src.empty()){
 		std::cout << "image was not found!" << std::endl;
@@ -18,7 +18,7 @@ int main(void){
 	cv::imshow("変換後", dst);
 	cv::waitKey();
 
-	cv::imwrite("./media/変換後.jpg", dst);
+	cv::imwrite("../media/変換後.jpg", dst);
 
 	cv::waitKey();
 

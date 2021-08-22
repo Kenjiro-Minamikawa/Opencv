@@ -12,6 +12,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/include"
   "/usr/include/opencv"
+  "/usr/local/include/opencv4/opencv"
+  "/usr/local/include/opencv4"
   )
 
 # Targets to which this target links.

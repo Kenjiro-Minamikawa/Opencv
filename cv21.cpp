@@ -1,12 +1,12 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
-#define H_MAX 30
+#define H_MAX 20
 #define H_MIN 0
 #define S_MAX 255
 #define S_MIN 150
 #define V_MAX 255
-#define V_MIN 50
+#define V_MIN 0
 
 using namespace cv;
 using namespace std;

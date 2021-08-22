@@ -3,7 +3,7 @@
 
 int main(void){
 	cv::Mat image;
-	image = cv::imread("/home/minamikawa/Opencv/media/rogoimage.png");
+	image = cv::imread("../media/rogoimage.png");
 	if(image.empty()){
 		std::cout << "image was not found!" << std::endl;
 	       	return -1;

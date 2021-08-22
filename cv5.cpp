@@ -3,7 +3,7 @@
 int main(void){
 	cv::Mat img;
 
-	img = cv::imread("/home/minamikawa/Opencv/media/rogoimage.png");
+	img = cv::imread("../media/rogoimage.png");
 
 	cv::Rect rect = cv::Rect(4000,4000, 300, 300);
 	cv::Mat src(img, rect);
